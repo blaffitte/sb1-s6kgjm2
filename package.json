@@ -1,0 +1,35 @@
+{
+  "name": "fridge-manager",
+  "main": "app/app.ts",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@azure/msal-browser": "^3.10.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "@nativescript/core": "~8.8.0",
+    "@nativescript/ios": "8.8.0",
+    "@nativescript/theme": "~3.0.2",
+    "reflect-metadata": "^0.2.1",
+    "tsyringe": "^4.8.0"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.8.0",
+    "@nativescript/preview-cli": "^1.0.14",
+    "@nativescript/stackblitz": "^0.0.8",
+    "@nativescript/tailwind": "^2.1.0",
+    "@nativescript/types": "~8.8.0",
+    "@nativescript/webpack": "~5.0.0",
+    "@types/jasmine": "^5.1.4",
+    "jasmine-core": "^5.1.1",
+    "tailwindcss": "~3.4.0",
+    "typescript": "~5.4.0"
+  },
+  "scripts": {
+    "postinstall": "setup-nativescript-stackblitz",
+    "preview": "ns preview",
+    "test": "jasmine"
+  },
+  "stackblitz": {
+    "startCommand": "npm run preview"
+  }
+}

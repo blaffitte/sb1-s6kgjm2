@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Paramètres" class="action-bar">
+        <NavigationButton text="Retour" android.systemIcon="ic_menu_back" />
+    </ActionBar>
+
+    <StackLayout class="p-4 space-y-4">
+        <Label text="Stockage des données" class="text-lg font-bold" />
+        
+        <StackLayout class="space-y-2">
+            <Label text="Sélectionnez où stocker vos données :" class="text-sm text-gray-500" />
+            
+            <GridLayout rows="auto, auto" columns="*, auto" class="p-4 bg-white rounded-lg">
+                <Label text="Stockage local" row="0" col="0" />
+                <Switch checked="{{ useLocalStorage }}" row="0" col="1" />
+                
+                <Label text="OneDrive" row="1" col="0" />
+                <Switch checked="{{ useOneDrive }}" row="1" col="1" />
+            </GridLayout>
+        </StackLayout>
+
+        <StackLayout class="space-y-2" visibility="{{ useOneDrive ? 'visible' : 'collapsed' }}">
+            <Label text="Compte OneDrive" class="text-lg font-bold" />
+            
+            <StackLayout class="p-4 bg-white rounded-lg">
+                <Label text="{{ isAuthenticated ? 'Connecté' : 'Non connecté' }}" 
+                       class="{{ isAuthenticated ? 'text-green-600' : 'text-red-600' }}" />
+                
+                <Button text="{{ isAuthenticated ? 'Se déconnecter' : 'Se connecter' }}"
+                        tap="{{ isAuthenticated ? 'onLogout' : 'onLogin' }}"
+                        class="{{ isAuthenticated ? 'btn-secondary' : 'btn-primary' }} mt-2" />
+            </StackLayout>
+        </StackLayout>
+
+        <Button text="Migrer les données" 
+                tap="onMigrateData"
+                class="btn-primary"
+                visibility="{{ canMigrate ? 'visible' : 'collapsed' }}" />
+    </StackLayout>
+</Page>

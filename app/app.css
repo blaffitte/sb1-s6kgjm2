@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.action-bar {
+    background-color: #3498db;
+    color: white;
+}
+
+.add-button {
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 5;
+    padding: 15;
+    margin: 10;
+}
+
+.item-card {
+    background-color: white;
+    border-radius: 10;
+    margin: 5 10;
+    padding: 15;
+    elevation: 2;
+}
+
+.expired {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.warning {
+    color: #f1c40f;
+}
+
+ListView {
+    background-color: #f5f5f5;
+    separator-color: transparent;
+}
+
+.text-lg {
+    font-size: 16;
+}
+
+.text-sm {
+    font-size: 14;
+}
+
+.text-2xl {
+    font-size: 24;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.text-gray-500 {
+    color: #6b7280;
+}
+
+.text-red {
+    color: #ef4444;
+    font-size: 12;
+    margin-top: 4;
+}
+
+.border-red {
+    border-color: #ef4444;
+    border-width: 1;
+}
+
+.btn {
+    font-size: 16;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.rounded-lg {
+    border-radius: 8;
+}
+
+.input {
+    border-width: 1;
+    border-color: #e5e7eb;
+    padding: 12;
+    font-size: 16;
+}

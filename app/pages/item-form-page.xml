@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="{{ isEditing ? 'Modifier l\'article' : 'Nouvel article' }}" class="action-bar">
+        <NavigationButton text="Retour" android.systemIcon="ic_menu_back" />
+        <ActionItem ios.position="right" tap="onSaveTap" ios.systemIcon="3">
+            <Label text="✓" class="text-xl" />
+        </ActionItem>
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout class="p-4 space-y-4">
+            <Label text="Nom" class="text-lg font-bold" />
+            <TextField id="name"
+                      text="{{ name }}" 
+                      hint="Nom de l'article" 
+                      class="input p-2 border rounded {{ validationErrors.name ? 'border-red' : '' }}"
+                      returnKeyType="next"
+                      focus="onTextFieldFocus" />
+            <Label text="{{ validationErrors.name }}" class="text-red" 
+                   visibility="{{ validationErrors.name ? 'visible' : 'collapsed' }}" />
+
+            <Label text="Catégorie" class="text-lg font-bold" />
+            <ListPicker items="{{ categories }}" 
+                       selectedIndex="{{ selectedCategoryIndex }}" 
+                       class="p-2 border rounded" />
+
+            <Label text="Quantité" class="text-lg font-bold" />
+            <TextField id="quantity"
+                      text="{{ quantity }}" 
+                      hint="Quantité" 
+                      keyboardType="number" 
+                      class="input p-2 border rounded {{ validationErrors.quantity ? 'border-red' : '' }}"
+                      returnKeyType="next"
+                      focus="onTextFieldFocus" />
+            <Label text="{{ validationErrors.quantity }}" class="text-red" 
+                   visibility="{{ validationErrors.quantity ? 'visible' : 'collapsed' }}" />
+
+            <Label text="Date d'expiration" class="text-lg font-bold" />
+            <DatePicker id="expiryDate"
+                       date="{{ expiryDate }}" 
+                       loaded="onDatePickerLoaded"
+                       class="p-2 border rounded {{ validationErrors.expiryDate ? 'border-red' : '' }}" />
+            <Label text="{{ validationErrors.expiryDate }}" class="text-red" 
+                   visibility="{{ validationErrors.expiryDate ? 'visible' : 'collapsed' }}" />
+
+            <Button text="{{ isEditing ? 'Mettre à jour' : 'Ajouter' }}" 
+                    tap="onSaveTap" 
+                    class="btn btn-primary p-3 rounded-lg" />
+            <Button text="Annuler" 
+                    tap="onCancelTap" 
+                    class="btn btn-secondary p-3 rounded-lg" />
+        </StackLayout>
+    </ScrollView>
+</Page>
