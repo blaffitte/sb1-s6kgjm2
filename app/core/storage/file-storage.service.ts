@@ -1,8 +1,8 @@
-import { Injectable } from 'tsyringe';
+import { injectable } from 'tsyringe';
 import { IStorage } from '../interfaces/storage.interface';
 import { File, Folder, knownFolders, path } from '@nativescript/core';
 
-@Injectable()
+@injectable()
 export class FileStorageService implements IStorage {
     private readonly dataFolder: Folder;
     
